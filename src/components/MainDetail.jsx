@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getCriptoUpdateUrl } from "../constants";
+import UseCounter from "../Hooks/UseCounter";
 
 function currentTime() {
   return Math.round(Date.now() / 1000);
@@ -21,7 +22,8 @@ export default function MainDetail({
   updateCryptoData
 }) {
   // Some parts of the sate will be replaced by your custom hooks
-  const [counter, setCounter] = useState(30);
+  // const [counter, setCounter] = useState(30);
+ const [counter, setCounter] = UseCounter(getCriptoUpdateUrl, id, updateCryptoData)
   const [playTicker, setPlayTicker] = useState(false);
   const [currTime, setCurrTime] = useState(currentTime());
 
@@ -37,22 +39,22 @@ export default function MainDetail({
   //////////////////////////////////////////////////////////////////////////////////////
 
   // You can turn this into a custom hook////////////////////
-  useEffect(() => {
-    if (counter < 0) {
-      fetch(getCriptoUpdateUrl(id))
-        .then((resp) => resp.json())
-        .then((data) => {
-          updateCryptoData(
-            {
-              current_price: data[id].gbp,
-              last_updated: data[id]["last_updated_at"]
-            },
-            id
-          );
-        });
-      setCounter(30);
-    }
-  }, [id, counter, setCounter, updateCryptoData]);
+  // useEffect(() => {
+  //   if (counter < 0) {
+  //     fetch(getCriptoUpdateUrl(id))
+  //       .then((resp) => resp.json())
+  //       .then((data) => {
+  //         updateCryptoData(
+  //           {
+  //             current_price: data[id].gbp,
+  //             last_updated: data[id]["last_updated_at"]
+  //           },
+  //           id
+  //         );
+  //       });
+  //     setCounter(30);
+  //   }
+  // }, [id, counter, setCounter, updateCryptoData]);
   ///////////////////////////////////////////////////////////
 
   // You can turn this into a custom hook////////////////////
