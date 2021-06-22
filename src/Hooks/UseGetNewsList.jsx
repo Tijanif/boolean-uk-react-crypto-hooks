@@ -10,7 +10,6 @@ const UseGetNewsList = () => {
         .then(({ status_updates }) => setNewsList(status_updates)),
     [setNewsList]
   );
-
   return [newsList]
 }
 export default UseGetNewsList

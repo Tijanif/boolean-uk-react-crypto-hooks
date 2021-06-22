@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-
-import { CRIPTO_LIST } from "./constants";
+import { useState } from "react";
 import MainDetail from "./components/MainDetail";
 import NewsFeed from "./components/NewsFeed";
 import SideList from "./components/SideList";
@@ -16,7 +14,6 @@ function App() {
   const [cryptoList, setCryptoList]=  UseCryptoList()
   const [selectedCrypto, setSelectedCripto] = useState(null);
 
-  
 
   function selectCrypto(selectedId) {
     setSelectedCripto(selectedId);
