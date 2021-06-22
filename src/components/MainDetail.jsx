@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getCriptoUpdateUrl } from "../constants";
 import UseCounter from "../Hooks/UseCounter";
+import UsePlayTicker from "../Hooks/UsePlayTicker";
 
 function currentTime() {
   return Math.round(Date.now() / 1000);
@@ -24,7 +25,7 @@ export default function MainDetail({
   // Some parts of the sate will be replaced by your custom hooks
   // const [counter, setCounter] = useState(30);
  const [counter, setCounter] = UseCounter(getCriptoUpdateUrl, id, updateCryptoData)
-  const [playTicker, setPlayTicker] = useState(false);
+ const [playTicker, setPlayTicker] =  UsePlayTicker(setCounter)
   const [currTime, setCurrTime] = useState(currentTime());
 
   //////////////////////////////////////////////////////////////////////////////////////
@@ -58,15 +59,15 @@ export default function MainDetail({
   ///////////////////////////////////////////////////////////
 
   // You can turn this into a custom hook////////////////////
-  useEffect(() => {
-    const interval =
-      playTicker &&
-      setInterval(() => {
-        setCounter((count) => count - 1);
-      }, 1000);
+  // useEffect(() => {
+  //   const interval =
+  //     playTicker &&
+  //     setInterval(() => {
+  //       setCounter((count) => count - 1);
+  //     }, 1000);
 
-    return () => clearInterval(interval);
-  }, [setCounter, playTicker]);
+  //   return () => clearInterval(interval);
+  // }, [setCounter, playTicker]);
   ///////////////////////////////////////////////////////////
 
   // You can turn this into a custom hook////////////////////
