@@ -4,6 +4,7 @@ import { CRIPTO_LIST } from "./constants";
 import MainDetail from "./components/MainDetail";
 import NewsFeed from "./components/NewsFeed";
 import SideList from "./components/SideList";
+import UseCryptoList from "./Hooks/UseCryptoList";
 
 //////////////////////////////////////////////////
 //                                              //
@@ -12,15 +13,17 @@ import SideList from "./components/SideList";
 //////////////////////////////////////////////////
 
 function App() {
-  const [cryptoList, setCryptoList] = useState([]);
+  const [cryptoList, setCryptoList]=  UseCryptoList()
   const [selectedCrypto, setSelectedCripto] = useState(null);
 
   // You can turn this into a custom hook////////////////////
-  useEffect(() => {
-    fetch(CRIPTO_LIST)
-      .then((resp) => resp.json())
-      .then(setCryptoList);
-  }, [setCryptoList]);
+  // useEffect(() => {
+  //   fetch(CRIPTO_LIST)
+  //     .then((resp) => resp.json())
+  //     .then(setCryptoList);
+  // }, [setCryptoList]);
+
+ 
   ///////////////////////////////////////////////////////////
 
   function selectCrypto(selectedId) {
