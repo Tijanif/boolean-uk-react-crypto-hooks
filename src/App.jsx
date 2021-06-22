@@ -16,15 +16,7 @@ function App() {
   const [cryptoList, setCryptoList]=  UseCryptoList()
   const [selectedCrypto, setSelectedCripto] = useState(null);
 
-  // You can turn this into a custom hook////////////////////
-  // useEffect(() => {
-  //   fetch(CRIPTO_LIST)
-  //     .then((resp) => resp.json())
-  //     .then(setCryptoList);
-  // }, [setCryptoList]);
-
- 
-  ///////////////////////////////////////////////////////////
+  
 
   function selectCrypto(selectedId) {
     setSelectedCripto(selectedId);

@@ -21,7 +21,7 @@ function convertToSeconds(dateValue) {
     return () => clearInterval(timer);
   }, [setCurrTime]);
 
-  return [currTime, setCurrTime, convertToSeconds]
+  return [currTime, convertToSeconds]
 }
 
 export default UseCurrentTime
