@@ -7,12 +7,7 @@ const UseCurrentTime = () => {
   return Math.round(Date.now() / 1000);
 }
 
-function convertToSeconds(dateValue) {
-  // This guard is needed due to the API discrepancies in handling dates
-  return typeof dateValue === "string"
-    ? Math.round(Date.parse(dateValue) / 1000)
-    : dateValue;
-}
+
  const [currTime, setCurrTime] = useState(currentTime())
    useEffect(() => {
     const timer = setInterval(() => {
@@ -21,7 +16,7 @@ function convertToSeconds(dateValue) {
     return () => clearInterval(timer);
   }, [setCurrTime]);
 
-  return [currTime, convertToSeconds]
+  return [currTime]
 }
 
 export default UseCurrentTime

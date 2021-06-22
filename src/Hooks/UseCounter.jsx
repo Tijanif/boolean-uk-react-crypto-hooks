@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
+import MainDetail from '../components/MainDetail'
+import { getCriptoUpdateUrl } from "../constants";
 
-const UseCounter = (getCriptoUpdateUrl, id, updateCryptoData) => {
+const UseCounter = () => {
+  const {id, updateCryptoData } = MainDetail
  const [counter, setCounter] = useState(30);
   useEffect(() => {
     if (counter < 0) {
