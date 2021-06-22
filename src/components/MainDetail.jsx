@@ -17,7 +17,7 @@ export default function MainDetail({
   
  const [counter, setCounter] = UseCounter()
  const [playTicker, setPlayTicker] =  UsePlayTicker(setCounter)
- const  [currTime, convertToSeconds] = UseCurrentTime()
+ const  [currTime] = UseCurrentTime()
  
 
 
